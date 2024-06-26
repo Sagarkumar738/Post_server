@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Lobster', cursive;
+            font-size: 3em;
+            color: rgba(0, 0, 0, 0.7);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: fade-in 2s ease-out;
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .container {
+            text-align: center;
+            margin-top: 270px; /* Adjust the margin to separate the header and the form */
+            animation: slide-up 1s ease-out;
+        }
+        @keyframes slide-up {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        input[type="password"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+        input[type="password"] {
+            border: 2px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="submit"] {
+            background-color: #32cd32;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        input[type="submit"]::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 2px solid #32cd32;
+            animation: neon-border 2s linear infinite;
+        }
+        @keyframes neon-border {
+            0% {
+                box-shadow: 0 0 5px #32cd32, 0 0 10px #32cd32, 0 0 20px #32cd32, 0 0 40px #32cd32, 0 0 80px #32cd32;
+            }
+            50% {
+                box-shadow: 0 0 10px #32cd32, 0 0 20px #32cd32, 0 0 40px #32cd32, 0 0 80px #32cd32, 0 0 160px #32cd32;
+            }
+            100% {
+                box-shadow: 0 0 5px #32cd32, 0 0 10px #32cd32, 0 0 20px #32cd32, 0 0 40px #32cd32, 0 0 80px #32cd32;
+            }
+        }
+        input[type="submit"]:hover {
+            background-color: #28a428;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">THE DADDY SAHIL CHOUDHARY ❤️</div>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter Password" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
